@@ -1,1 +1,139 @@
-# python-learning
+# Cinema app
+
+#### Prerequisites
+- Install the latest versions of `Python` & `Django`. Downgrading might become necessary later on, as packages you might want to install ask for lower versions.
+- Install and use `PostgreSQL` / `MySQL` as db engine for the project.
+
+#### Good practices to apply while writing code
+- Run `flake8` or `pylint` on the written code in order to get accomodated to `Python`'s coding standards (`PEP8`).
+- Unit testing.
+
+---
+## First sprint
+
+#### Create following pages:
+- Presentation page
+- Movies running in this period (filter)
+- Add movie details page; embed trailer in the page
+- Contact page
+- Account related pages:
+    - Login
+    - Logout
+    - Reset password
+    - Register. Detailed steps:
+        - I complete a form with just my email
+        - I confirm my email address by clicking the received link
+        - I complete other account details and the account is created
+
+
+#### DB tables:
+
+- Cinema: 
+    - city
+    - address
+    - halls
+    - name
+    - description
+- Hall:
+    - name
+    - seats
+    - description
+- Film:
+    - name
+    - poster 
+    - description
+    - `IMDb` id
+    - `IMDb` url (field / property generated using `IMDb` id)
+    - trailer url
+    - duration (& fields for other info)
+- Seat:
+    - reservation
+    - occupied (simulate pressure sensor)
+- Reservation:
+    - user 
+    - playing time
+
+
+#### Functionalities:
+
+- As an admin, I should be able to add playing times for the movies.
+- As an user, I should be able to select a cinema, hall, movie and playing time and create a reservation
+
+
+---
+## Second sprint
+
+- Add confirmation field on reservation.
+- Send an email when a new Movie is added (newsletter)
+
+#### Cronjobs. Async Tasks
+- Invalidate reservations that are not confirmed within 30 mins from movie start.
+
+#### Unit tests
+- Tests for generating Seats
+- Tests for login, logout, register (and for everything else if possible)
+
+#### File uploads
+- `.csv` upload to import Movies (with update if they already exist based on the imdb_id)
+
+
+---
+## Third sprint 
+
+- Import movies from `.zip` file containing a `.csv` and images (for movie covers). The `.csv` will contain the relative path of the images
+- Add a field that stores whether or not a seat is occupied (something like `occupied`)
+
+### Django Rest Framework (DRF):
+
+[Go through DRF tutorials (quickstart, 1-6)](https://www.django-rest-framework.org/tutorial/quickstart/)
+
+##### Create `API`s for the following cases:
+- This week's movies
+- This week's movies and their playing times
+- Where and when a specific movie is running, in all locations (search by `IMDb` id or name)
+- Create / Update: 
+    - movies
+    - running times
+    - halls
+    - reservation
+- Mark reservation as confirmed
+
+> Secure above endpoints with token authentication (`Bearer {base64 token}`)
+
+- Simulate spectator presence on seats; flip `occupied` field on endpoint call. Limit API access (unique token, API key, IP filtering)
+
+##### Integrate Swagger for easier work with `API`s
+
+### Handle huge downloads:
+- Allow users to export data about their reservations (`.csv`)
+- Write an SQL script to generate a lot of user reservations (200k) and test `.csv` export response time 
+- Lower `TTFB` (Time To First Byte) signifiantly for better UX
+
+
+---
+# To be refined
+
+- Write a script that uses this API to simulate random seat occupation (like a sensor that is triggered when someone sits on their seat).
+
+- Identify possible frauds (seats occupied without reservations)
+
+- Write `python` / `bash` script for finding out a user's password (medium) using `bruteforce`
+- Limit requests on login to prevent bruteforce attacks
+- Write `python` / `bash` script for testing rate limit
+
+- Dockerize project (run application in containers - django project & database)
+- HTML page that loads values gotten from API (`jQuery`, `Angular`, `React`)
+
+- File upload & download
+- Manipulation of uploaded files (remove metadata)
+
+- Export data from db to `.csv` / `.xlsx` / `.pdf`
+
+- Implement payment solution for buying tickets
+
+- Task async (`celery`) care sa preia descrierea filmului de pe pagina IMDB si sa o aduca in DB 
+
+#### Ideas
+- websockets?
+- location consent?
+- cookies consent? 
