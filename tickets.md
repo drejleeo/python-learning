@@ -153,16 +153,9 @@ The purpose of this task is to add the ability to schedule movies, as an admin. 
 
 
 ## [BE] Send an email to the user with the tickets after the booking was completed
-The purpose of this task is to .
-___
-*Links to other pages*
-___
-Add several fields:
-___
-*Links to social media accounts* ___
 .
 *DoD*:
-* the
+* The email is sent.
 
 
 ## [BE] Add the ability to book a ticket
@@ -170,33 +163,6 @@ The purpose of this task is to add the ability to book a ticket, as a registered
 .
 *DoD*:
 - as an authenticated user, I can make a reservation for a movie in a specific Cinema, Hall and timeframe
-
-
-## [BUG] Sometimes the seats are not generated correctly into the reservation UI
-The purpose of this task is to .
-___
-*Links to other pages*
-
- ___
-Add several fields:
-___
-*Links to social media accounts* ___
-.
-*DoD*:
-* the
-
-
-## [BE] Link cinema contact forms to the cinema
-The purpose of this task is to .
-___
-*Links to other pages*
-___
-Add several fields:
-___
-*Links to social media accounts* ___
-.
-*DoD*:
-* the
 
 
 ## [UI] Save the submissions from the Contacts page in the DB
@@ -220,18 +186,6 @@ ___
 .
 *DoD*:
 * the page is rendered successfully and we can submit and view the submissions
-
-
-## [BE] Add cinema logo in the model
-The purpose of this task is to .
-___
-
- *Links to other pages* ___
-Add several fields: ___
-*Links to social media accounts* ___
-.
-*DoD*:
-* the
 
 
 ## [BE] [Model] Add the Seat model
