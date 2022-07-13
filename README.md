@@ -59,6 +59,7 @@
 - As an admin, I should be able to add playing times for the movies.
 - As an user, I should be able to select a cinema, hall, movie and playing time and create a reservation
 
+- Limit requests on login to prevent bruteforce attacks
 
 ---
 ## Second sprint
@@ -76,6 +77,8 @@
 #### File uploads
 - `.csv` upload to import Movies (with update if they already exist based on the imdb_id)
 
+#### File download
+- Allow users to export data about their reservations (`.csv`)
 
 ---
 ## Third sprint 
@@ -97,41 +100,39 @@
     - halls
     - reservation
 - Mark reservation as confirmed
+- Allow the change of spectator presence on seats; flip `occupied` field on endpoint call. Limit API access (unique token, API key, IP filtering)
 
 > Secure above endpoints with token authentication (`Bearer {base64 token}`)
-
-- Simulate spectator presence on seats; flip `occupied` field on endpoint call. Limit API access (unique token, API key, IP filtering)
 
 ##### Integrate Swagger for easier work with `API`s
 
 ### Handle huge downloads:
-- Allow users to export data about their reservations (`.csv`)
 - Write an SQL script to generate a lot of user reservations (200k) and test `.csv` export response time 
 - Lower `TTFB` (Time To First Byte) signifiantly for better UX
 
 
 ---
+## Fourth sprint 
+
+- Familiarize yourself with Docker. Go through all the parts of https://docs.docker.com/get-started/
+- Dockerize project (run application in containers - django project & database)
+- Migrate PostgreSQL data from local server to the docker contained server
+- Task async (`crontab`) that retrieves the description of movies from the IMDB page and populates the DB with it
+- Write a script that uses the presence API to simulate random seat occupation (like a sensor that is triggered when someone sits on their seat)
+- Based on the above script, add a new API that will allow us to identify possible frauds (seats occupied without reservations)
+- Implement payment solution for buying tickets
+
+---
 # To be refined
 
-- Write a script that uses this API to simulate random seat occupation (like a sensor that is triggered when someone sits on their seat).
-
-- Identify possible frauds (seats occupied without reservations)
-
 - Write `python` / `bash` script for finding out a user's password (medium) using `bruteforce`
-- Limit requests on login to prevent bruteforce attacks
 - Write `python` / `bash` script for testing rate limit
 
-- Dockerize project (run application in containers - django project & database)
 - HTML page that loads values gotten from API (`jQuery`, `Angular`, `React`)
 
 - File upload & download
 - Manipulation of uploaded files (remove metadata)
 
-- Export data from db to `.csv` / `.xlsx` / `.pdf`
-
-- Implement payment solution for buying tickets
-
-- Task async (`celery`) care sa preia descrierea filmului de pe pagina IMDB si sa o aduca in DB 
 
 #### Ideas
 - websockets?
