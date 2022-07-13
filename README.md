@@ -120,7 +120,6 @@
 - Task async (`crontab`) that retrieves the description of movies from the IMDB page and populates the DB with it
 - Write a script that uses the presence API to simulate random seat occupation (like a sensor that is triggered when someone sits on their seat)
 - Based on the above script, add a new API that will allow us to identify possible frauds (seats occupied without reservations)
-- Implement payment solution for buying tickets
 
 ---
 # To be refined
@@ -130,8 +129,10 @@
 
 - HTML page that loads values gotten from API (`jQuery`, `Angular`, `React`)
 
-- File upload & download
-- Manipulation of uploaded files (remove metadata)
+- File upload & download: Manipulation of uploaded files (remove metadata)
+
+- Implement payment solution for buying tickets
+- Deploy app in Heroku
 
 
 #### Ideas
