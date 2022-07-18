@@ -52,6 +52,10 @@
 - Reservation:
     - user 
     - playing time
+- Playing time:
+    - start time
+    - hall
+    - movie
 
 
 #### Functionalities:
