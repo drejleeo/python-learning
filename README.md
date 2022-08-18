@@ -126,17 +126,15 @@
 - Based on the above script, add a new API that will allow us to identify possible frauds (seats occupied without reservations)
 
 ---
+# Fifth sprint
+
+- Deploy app in Heroku (+presentation).
+- Implement payment solution for buying tickets.
+- Generate thumbnails for posters of specific dimensions (without external libraries)
+
+---
 # To be refined
-
-- Write `python` / `bash` script for finding out a user's password (medium) using `bruteforce`
-- Write `python` / `bash` script for testing rate limit
-
-- HTML page that loads values gotten from API (`jQuery`, `Angular`, `React`)
-
-- File upload & download: Manipulation of uploaded files (remove metadata)
-
-- Implement payment solution for buying tickets
-- Deploy app in Heroku
+- File manipulation (add metadata to uploaded images)
 
 
 #### Ideas
