@@ -28,15 +28,17 @@
 
 #### DB tables:
 
+- City
+    - name
+    - country (FK)
 - Cinema: 
-    - city
+    - city (FK)
     - address
-    - halls
     - name
     - description
 - Hall:
+    - city (FK)
     - name
-    - seats
     - description
 - Film:
     - name
@@ -45,17 +47,18 @@
     - `IMDb` id
     - `IMDb` url (field / property generated using `IMDb` id)
     - trailer url
-    - duration (& fields for other info)
+    - duration
 - Seat:
-    - reservation
+    - name / representation in its hall
     - occupied (simulate pressure sensor)
 - Reservation:
-    - user 
-    - playing time
+    - user (FK)
+    - playing time (FK)
+    - seat (FK)
 - Playing time:
     - start time
-    - hall
-    - movie
+    - hall (FK)
+    - movie (FK)
 
 
 #### Functionalities:
